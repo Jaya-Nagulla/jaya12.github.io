@@ -1,0 +1,76 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    background: #f7f7f7;
+    margin: 0;
+}
+
+#gameBoard {
+    display: grid;
+    grid-template-columns: repeat(7, 50px);
+    grid-gap: 5px;
+    margin-bottom: 20px; /* Space between the grid and restart button */
+    border: 3px solid #333; /* Highlight the grid */
+    padding: 5px; /* Space around the grid */
+    background: #fff;
+}
+
+.slot {
+    width: 50px;
+    height: 50px;
+    background-color: lightgrey;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.piece {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -60px; /* Start below the slot */
+}
+
+.red {
+    background-color: red;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+#restartButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Keyframes for the drop animation */
+@keyframes dropPiece {
+    from {
+        bottom: 100%;
+    }
+    to {
+        bottom: 5px;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#winMessage {
+    display: none;
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    animation: fadeIn 2s forwards;
+}
